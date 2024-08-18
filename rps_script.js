@@ -1,21 +1,24 @@
 /* Function that returns Rock, Paper or Scissors */
 function getComputerChoice() {
   let numberChoice = Math.random();
-  let rpsChoice = null;
+  let computerChoice = null;
   
   if (numberChoice <= 1/3) {
-    rpsChoice = "rock";
+    computerChoice = "rock";
   } else if (numberChoice > 1/3 && numberChoice < 2/3) {
-    rpsChoice = "paper";
+    computerChoiceChoice = "paper";
   } else {
-    rpsChoice = "scissors";
+    computerChoice = "scissors";
   }
 
   return rpsChoice;
 }
 
-
 /*Function that gets the user input */
+function getHumanChoice() {
+  return prompt("Rock, Paper or Scissors?").toLowerCase();
+}
+
 
 /*?Global variables, ?Local variables that record the score*/
 
