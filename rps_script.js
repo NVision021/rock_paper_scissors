@@ -50,7 +50,7 @@ function humanWins(computerChoice, humanChoice) {
 }
 
 /*Function that checks score and resets if someone wins*/
-function CheckScore() {
+function checkscore() {
   if (computerScore === 5) {
     resultsContainer.textContent += ("Computer reached 5 points. COMPUTER WINS!");
     computerScore = 0;
@@ -74,7 +74,7 @@ function playRound (humanChoice) {
   }
 
   resultsContainer.textContent += (` Computer: ${computerScore}, Player: ${humanScore}.`);
-  CheckScore()
+  checkscore()
 }
 
 
