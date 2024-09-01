@@ -56,7 +56,8 @@ function playRound () {
 }
 
 /*Logic to play entire game */
-function playGame() {
+//2.1 REMOVE LOGIC THAT PLAYS 5 ROUNDS
+/*function playGame() {
   playRound()
   playRound()
   playRound()
@@ -72,4 +73,4 @@ function playGame() {
   }
 }
 
-playGame()
+playGame()*/
