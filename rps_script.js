@@ -14,11 +14,6 @@ function getComputerChoice() {
   return computerChoice;
 }
 
-/*Function that gets the user input (NO LONGER RELEVENT)
-function getHumanChoice() {
-  return prompt("Rock, Paper or Scissors?").toLowerCase();
-}*/
-
 /*Adding event listener to each button that starts the game*/
 const buttons = document.querySelectorAll("button");
 buttons.forEach((button)=> {
@@ -81,22 +76,3 @@ function playRound (humanChoice) {
 
 
 
-
-
-/*Logic to play entire game (NO LONGER RELEVENT)*/
-/*function playGame() {
-  playRound()
-  playRound()
-  playRound()
-  playRound()
-  playRound()
-
-  if (humanScore === computerScore) {
-    console.log("After 5 rounds, it's a Tie!")
-  } else if (humanScore > computerScore) {
-    console.log("After 5 rounds, you are the winner!")
-  } else {
-    console.log("After 5 rounds, the computer is the winner!")
-  }
-}
-playGame()*/
