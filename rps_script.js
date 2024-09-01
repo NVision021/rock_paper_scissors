@@ -49,6 +49,18 @@ function humanWins(computerChoice, humanChoice) {
   humanScore += 1;
 }
 
+/*Function that checks score and resets if someone wins*/
+function CheckScore() {
+  if (computerScore === 5) {
+    resultsContainer.textContent += ("Computer reached 5 points. COMPUTER WINS!");
+    computerScore = 0;
+    humanScore = 0;
+  } else if (humanScore === 5) {
+    resultsContainer.textContent += (" You reached 5 points. YOU WIN!");
+    computerScore = 0;
+    humanScore = 0;
+  }
+}
 
 /*Function that plays a single round */
 function playRound (humanChoice) {
@@ -61,8 +73,11 @@ function playRound (humanChoice) {
     humanWins(computerChoice, humanChoice);
   }
 
-   resultsContainer.textContent += (` Computer: ${computerScore}, Player: ${humanScore}.`);
-  }
+  resultsContainer.textContent += (` Computer: ${computerScore}, Player: ${humanScore}.`);
+  CheckScore()
+}
+
+
 
 
 
