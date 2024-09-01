@@ -2,8 +2,6 @@
 function getComputerChoice() {
   let numberChoice = Math.random();
   let computerChoice = null;
-
-  console.log(numberChoice);
   
   if (numberChoice <= 1/3) {
     computerChoice = "rock";
@@ -34,16 +32,20 @@ buttons.forEach((button)=> {
 let humanScore = 0;
 let computerScore = 0;
 
+/*Store the results div in a variable*/
+const resultsContainer = document.querySelector("#results-container");
+resultsContainer.style.fontFamily = "roboto, sans-serif";
+
 /*Functions that provides text and increases score as appropriate*/
 function computerWins(computerChoice, humanChoice) {
   let capitalisedComputer = computerChoice.slice(0,1).toUpperCase() + computerChoice.slice(1).toLowerCase();
-  console.log(`Computer picked ${computerChoice}. You lose! ${capitalisedComputer} beats ${humanChoice}!`);
+  resultsContainer.textContent = (`Computer picked ${computerChoice}. You lose! ${capitalisedComputer} beats ${humanChoice}!`);
   computerScore += 1;
 }
 
 function humanWins(computerChoice, humanChoice) {
   let capitalisedHuman = humanChoice.slice(0,1).toUpperCase() + humanChoice.slice(1).toLowerCase();
-  console.log(`Computer picked ${computerChoice}. You win! ${capitalisedHuman} beats ${computerChoice}!`);
+  resultsContainer.textContent = (`Computer picked ${computerChoice}. You win! ${capitalisedHuman} beats ${computerChoice}!`);
   humanScore += 1;
 }
 
@@ -51,19 +53,18 @@ function humanWins(computerChoice, humanChoice) {
 /*Function that plays a single round */
 function playRound (humanChoice) {
   let computerChoice = getComputerChoice();
-  
   if (computerChoice === humanChoice) {
-    console.log("It's a Tie! No one wins!");
+    resultsContainer.textContent = ("It's a tie! No one wins!");
   } else if (computerChoice === "rock" && humanChoice === "scissors" || computerChoice === "scissors" && humanChoice === "paper" || computerChoice === "paper" && humanChoice === "rock") {
     computerWins(computerChoice, humanChoice);
   } else if (humanChoice === "rock" && computerChoice === "scissors" || humanChoice === "scissors" && computerChoice === "paper" || humanChoice === "paper" && computerChoice === "rock") {
     humanWins(computerChoice, humanChoice);
   }
 
-  console.log("Scores:");
-  console.log(`Computer: ${computerScore}`);
-  console.log(`Player: ${humanScore}`);
-}
+   resultsContainer.textContent += (` Computer: ${computerScore}, Player: ${humanScore}.`);
+  }
+
+
 
 
 
