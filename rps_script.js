@@ -49,14 +49,15 @@ function checkscore() {
   if (computerScore === 5) {
     resultsContainer.textContent += ("Computer reached 5 points. COMPUTER WINS!");
     resultsContainer.style.borderColor = "red";
-    computerScore = 0;
-    humanScore = 0;
   } else if (humanScore === 5) {
     resultsContainer.textContent += (" You reached 5 points. YOU WIN!");
     resultsContainer.style.borderColor = "lightgreen";
+  }
+  if (computerScore === 5 || humanScore ===5) {
     computerScore = 0;
     humanScore = 0;
   }
+
 }
 
 /*Function that plays a single round */
