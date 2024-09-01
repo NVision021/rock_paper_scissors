@@ -2,6 +2,8 @@
 function getComputerChoice() {
   let numberChoice = Math.random();
   let computerChoice = null;
+
+  console.log(numberChoice);
   
   if (numberChoice <= 1/3) {
     computerChoice = "rock";
@@ -14,10 +16,19 @@ function getComputerChoice() {
   return computerChoice;
 }
 
-/*Function that gets the user input */
+/*Function that gets the user input (NO LONGER RELEVENT)
 function getHumanChoice() {
   return prompt("Rock, Paper or Scissors?").toLowerCase();
-}
+}*/
+
+/*Adding event listener to each button that starts the game*/
+const buttons = document.querySelectorAll("button");
+buttons.forEach((button)=> {
+  button.addEventListener("click", (event) => {
+    let humanChoice = event.target.textContent.toLowerCase();
+    playRound(humanChoice);
+  })
+})
 
 /*Global variables that record the score*/
 let humanScore = 0;
@@ -38,25 +49,25 @@ function humanWins(computerChoice, humanChoice) {
 
 
 /*Function that plays a single round */
-function playRound () {
+function playRound (humanChoice) {
   let computerChoice = getComputerChoice();
-  let humanChoice = getHumanChoice();
-
+  
   if (computerChoice === humanChoice) {
-    console.log("It's a Tie! No one wins!")
+    console.log("It's a Tie! No one wins!");
   } else if (computerChoice === "rock" && humanChoice === "scissors" || computerChoice === "scissors" && humanChoice === "paper" || computerChoice === "paper" && humanChoice === "rock") {
-    computerWins(computerChoice, humanChoice)
+    computerWins(computerChoice, humanChoice);
   } else if (humanChoice === "rock" && computerChoice === "scissors" || humanChoice === "scissors" && computerChoice === "paper" || humanChoice === "paper" && computerChoice === "rock") {
-    humanWins(computerChoice, humanChoice)
+    humanWins(computerChoice, humanChoice);
   }
 
-  console.log("Scores:")
-  console.log(`Computer: ${computerScore}`)
-  console.log(`Player: ${humanScore}`)
+  console.log("Scores:");
+  console.log(`Computer: ${computerScore}`);
+  console.log(`Player: ${humanScore}`);
 }
 
-/*Logic to play entire game */
-//2.1 REMOVE LOGIC THAT PLAYS 5 ROUNDS
+
+
+/*Logic to play entire game (NO LONGER RELEVENT)*/
 /*function playGame() {
   playRound()
   playRound()
@@ -72,5 +83,4 @@ function playRound () {
     console.log("After 5 rounds, the computer is the winner!")
   }
 }
-
 playGame()*/
